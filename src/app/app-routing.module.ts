@@ -5,7 +5,10 @@ import { loadModule } from 'mfe-helpers';
 const routes: Routes = [
   {
     path: "fly-module",
-    loadChildren: () => loadModule('assets/fly-app/module-on-fly.umd.js').then(g => {console.log(Object.keys(g['module-on-fly'])); return g['module-on-fly'].ModuleOnFlyModule})
+    loadChildren: () => {
+      return loadModule('assets/fly-app/module-on-fly.umd.js')
+            .then(g => g['module-on-fly'].ModuleOnFlyModule)
+    } 
   }
 ];
 
